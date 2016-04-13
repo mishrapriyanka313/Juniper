@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>JUNIPER CONTRAIL UI</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <!-- Include the plugin's CSS and JS: --REMOVING!!!
+    <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>-->
+
+    <!-- Include Twitter Bootstrap and jQuery: --REMOVING!!!
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js">
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
+    <script src="js/jquery.datetimepicker.full.js"></script>
+    <script src="js/model.js"></script>
+
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+    <div class="container topnav">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand topnav" href="#">JUNIPER NETWORKS</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.juniper.net/us/en/products-services/a-z/">PRODUCTS & SERVICES</a>
+                </li>
+                <li>
+                    <a href="https://www.juniper.net/customers/support/">SUPPORT</a>
+                </li>
+                <li>
+                    <a href="https://learningportal.juniper.net/juniper/user_courses.aspx">TRAINING</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Header -->
+<a name="about"></a>
+<div class="intro-header">
+    <div class="container">
+        <form  action="/api/traffic" method="get">
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="intro-message">
+
+                        <div class="form-group">
+                            <label class="col-xs-6 control-label"><font color="black" size="4"><strong>
+                                Select below fields (Time Range is mandatory)</strong></font> </label><div class="col-xs-6"></div>
+                            <br><br><br>
+                            <div class="col-xs-8">
+                                <select class="form-control" name="attributes" multiple required>
+                                    <option value="flowtimestamp">Time Stamp</option>
+                                    <option value="destination_ip">Destination IP</option>
+                                    <option value="destination_vn">Destination VN</option>
+                                    <option value="direction_ingress">Direction Ingress</option>
+                                    <option value="destination_port">Destination Port</option>
+                                    <option value="protocol">Protocol</option>
+                                    <option value="source_ip">Source IP</option>
+                                    <option value="source_vn">Source VN</option>
+                                    <option value="source_port">Source Port</option>
+                                    <option value="sum_bytes_kb">Sum Bytes(KB)</option>
+                                    <option value="sum_packets">Sum Packets</option>
+
+                                </select>
+                            </div>
+                            <div class="col-xs-4"></div>
+
+
+
+
+
+                            <div class="col-xs-6" style="color: black; padding-top: 20px">
+                                <label for="starttime">Start Time</label>
+                                <!--<input type="text" class="form-control" id="starttime" name="starttime">-->
+                                <input type="text" class="some_class" value="" id="starttime" name="starttime" required/>
+                            </div>
+
+                            <br/><br/>
+
+                            <div class="col-xs-6" style="color: black; padding-top: 20px">
+                                <label for="endtime">End Time</label>
+                                <!-- <input type ="datetime" class="form-control" id="endtime" name="endtime">-->
+                                <input type="text" class="some_class" value="" id="endtime" name="endtime" required/>
+                            </div>
+
+                            <br/><br/>
+
+                            <div class="col-xs-3"  style="padding-top: 70px">
+                                <button type="submit" class="btn btn-info" >Submit</button>
+                            </div>
+                            <div class="col-xs-9"></div>
+
+
+
+                            <div class="col-xs-3">
+                                <br><strong><font color="black" size="3">WHERE</font></strong>
+                                <strong><font color="black" size="3">DestinationIP:</font></strong><br>
+                                <input type="text" style="color:black" name="destination_ip1"/><br>
+                                <strong><font color="black" size="3">  SourceIP:</font></strong><br>
+                                <input type="text" style="color:black" value="" id="source_ip123" name="source_ip123"/>
+                                <strong><font color="black" size="3"> DestinationVN:</font></strong><br>
+                                <input type="text" style="color:black" name="destination_vn1"/><br>
+                                <strong><font color="black" size="3"> DirectionIngress:</font></strong><br>
+                                <input type="text" style="color:black" value="" id="direction_ingress1" name="direction_ingress1"/>
+                                <strong><font color="black" size="3"> DestinationPort:</font></strong><br>
+                                <input type="text" style="color:black" name="destination_port1"/><br>
+                                <strong><font color="black" size="3"> SourceVN:</font></strong><br>
+                                <input type="text" style="color:black" value="" id="source_vn1" name="source_vn1"/>
+                                <strong><font color="black" size="3"> SourcePort:</font></strong><br>
+                                <input type="text" style="color:black" name="source_port1"/><br>
+                                <strong><font color="black" size="3"> SumBytesKB:</font></strong><br>
+                                <input type="text" style="color:black" value="" id="sum_bytes_kb1" name="sum_bytes_kb1"/>
+                                <strong><font color="black" size="3"> SumPackets:</font></strong><br>
+                                <input type="text" style="color:black" name="sum_packets1"/><br>
+
+                            </div>
+                            <div class="col-xs-9"></div>
+                        </div>
+
+
+
+                        <br><br><br>
+
+
+                    </div>
+
+                </div><div class="col-xs-8"></div>
+                <!-- /.container -->
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<!-- JAVASCRIPTS -->
+
+<!-- For DatePicker -->
+<script>/*
+ window.onerror = function(errorMsg) {
+ $('#console').html($('#console').html()+'<br>'+errorMsg)
+ }*/
+$.datetimepicker.setLocale('en');
+$('#datetimepicker_format').datetimepicker({
+    value: '2015/04/15 05:03',
+    format: $("#datetimepicker_format_value").val()
+});
+console.log($('#datetimepicker_format').datetimepicker('getValue'));
+$("#datetimepicker_format_change").on("click", function (e) {
+    $("#datetimepicker_format").data('xdsoft_datetimepicker').setOptions({format: $("#datetimepicker_format_value").val()});
+});
+$("#datetimepicker_format_locale").on("change", function (e) {
+    $.datetimepicker.setLocale($(e.currentTarget).val());
+});
+$('#datetimepicker').datetimepicker({
+    dayOfWeekStart: 1,
+    lang: 'en',
+    disabledDates: ['1986/01/08', '1986/01/09', '1986/01/10'],
+    startDate: '1986/01/05'
+});
+$('#datetimepicker').datetimepicker({value: '2015/04/15 05:03', step: 10});
+$('.some_class').datetimepicker();
+$('#default_datetimepicker').datetimepicker({
+    formatTime: 'H:i',
+    formatDate: 'd.m.Y',
+    //defaultDate:'8.12.1986', // it's my birthday
+    defaultDate: '+03.01.1970', // it's my birthday
+    defaultTime: '10:00',
+    timepickerScrollbar: false
+});
+$('#datetimepicker10').datetimepicker({
+    step: 5,
+    inline: true
+});
+$('#datetimepicker_mask').datetimepicker({
+    mask: '9999/19/39 29:59'
+});
+$('#datetimepicker1').datetimepicker({
+    datepicker: false,
+    format: 'H:i',
+    step: 5
+});
+$('#datetimepicker2').datetimepicker({
+    yearOffset: 222,
+    lang: 'ch',
+    timepicker: false,
+    format: 'd/m/Y',
+    formatDate: 'Y/m/d',
+    minDate: '-1970/01/02', // yesterday is minimum date
+    maxDate: '+1970/01/02' // and tommorow is maximum date calendar
+});
+$('#datetimepicker3').datetimepicker({
+    inline: true
+});
+$('#datetimepicker4').datetimepicker();
+$('#open').click(function () {
+    $('#datetimepicker4').datetimepicker('show');
+});
+$('#close').click(function () {
+    $('#datetimepicker4').datetimepicker('hide');
+});
+$('#reset').click(function () {
+    $('#datetimepicker4').datetimepicker('reset');
+});
+$('#datetimepicker5').datetimepicker({
+    datepicker: false,
+    allowTimes: ['12:00', '13:00', '15:00', '17:00', '17:05', '17:20', '19:00', '20:00'],
+    step: 5
+});
+$('#datetimepicker6').datetimepicker();
+$('#destroy').click(function () {
+    if ($('#datetimepicker6').data('xdsoft_datetimepicker')) {
+        $('#datetimepicker6').datetimepicker('destroy');
+        this.value = 'create';
+    } else {
+        $('#datetimepicker6').datetimepicker();
+        this.value = 'destroy';
+    }
+});
+var logic = function (currentDateTime) {
+    if (currentDateTime && currentDateTime.getDay() == 6) {
+        this.setOptions({
+            minTime: '11:00'
+        });
+    } else
+        this.setOptions({
+            minTime: '8:00'
+        });
+};
+$('#datetimepicker7').datetimepicker({
+    onChangeDateTime: logic,
+    onShow: logic
+});
+$('#datetimepicker8').datetimepicker({
+    onGenerate: function (ct) {
+        $(this).find('.xdsoft_date')
+                .toggleClass('xdsoft_disabled');
+    },
+    minDate: '-1970/01/2',
+    maxDate: '+1970/01/2',
+    timepicker: false
+});
+$('#datetimepicker9').datetimepicker({
+    onGenerate: function (ct) {
+        $(this).find('.xdsoft_date.xdsoft_weekend')
+                .addClass('xdsoft_disabled');
+    },
+    weekends: ['01.01.2014', '02.01.2014', '03.01.2014', '04.01.2014', '05.01.2014', '06.01.2014'],
+    timepicker: false
+});
+var dateToDisable = new Date();
+dateToDisable.setDate(dateToDisable.getDate() + 2);
+$('#datetimepicker11').datetimepicker({
+    beforeShowDay: function (date) {
+        if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
+            return [false, ""]
+        }
+        return [true, ""];
+    }
+});
+$('#datetimepicker12').datetimepicker({
+    beforeShowDay: function (date) {
+        if (date.getMonth() == dateToDisable.getMonth() && date.getDate() == dateToDisable.getDate()) {
+            return [true, "custom-date-style"];
+        }
+        return [true, ""];
+    }
+});
+$('#datetimepicker_dark').datetimepicker({theme: 'dark'})
+</script>
+
+
+
+
+</body>
+
+
+
+</html>
