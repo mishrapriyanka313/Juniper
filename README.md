@@ -15,3 +15,4 @@ https://www.jetbrains.com/webstorm/
 3. In the command line run the command: 'node server.js'. This will start the server.
 4. Go to your browser window and goto the following address 'http://localhost:3000'. It should automatically redirect you to http://localhost:3000/client.
 5. Afer this use the links below or type 'http://localhost:3000/client/DataFlow.html' in your web browser to go to the main application window.
+6. Please go through Juniper Network.docx document attached for further deatils.
