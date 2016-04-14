@@ -8,14 +8,10 @@ Flow statistics based on various select criteria. The backend renders the user r
 Create a NodeJs Project in WebStrom IDE
 https://www.jetbrains.com/webstorm/
 
-Getting Started with the Document
+# Getting Started with the Document
+
 1. Make sure You have node.js installed and add it to the $PATH. This will make sure your 'node' command in your terminal works.
 2. Using your terminal or your command prompt, go to the folder which points to the root Juniper folder where server.js is present.
 3. In the command line run the command: 'node server.js'. This will start the server.
 4. Go to your browser window and goto the following address 'http://localhost:3000'. It should automatically redirect you to http://localhost:3000/client.
 5.Afer this use the links below or type 'http://localhost:3000/client/DataFlow.html' in your web browser to go to the main application window.
-
-
-
-
-
